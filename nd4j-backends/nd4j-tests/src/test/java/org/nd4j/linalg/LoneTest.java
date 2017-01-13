@@ -141,4 +141,23 @@ public class LoneTest extends BaseNd4jTest {
         System.out.println(b);
     }
 
+    @Test
+    public void permuteiTest() {
+        INDArray A = Nd4j.linspace(1,16,16).reshape(4,2,2);
+        INDArray B = A.dup();
+
+        int[] reArrange = new int[] {2,0,1};
+
+        A = A.permute(reArrange);
+        B = B.permutei(reArrange);
+
+        assertTrue(A.equals(B));
+
+        int[] newShape = new int[] {4,4};
+        A = A.reshape(newShape);
+        B = B.reshape(newShape);
+
+        assertTrue(A.equals(B));
+    }
+
 }

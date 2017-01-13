@@ -4551,11 +4551,13 @@ public abstract class BaseNDArray implements INDArray, Iterable {
             this.attemptedToFindElementWiseStride = true;
         }
 
+        /*
         if (shapeInfo.get(2 * rank + 2) > 0) {
             //for the backend to work - no ews for permutei
             //^^ not true anymore? Not sure here. Marking this for raver
             this.shapeInformation = Nd4j.getShapeInfoProvider().createShapeInformation(newShape, newStride, this.offset(), -1 , newOrder);
         }
+        */
 
         this.rows = size(0);
         this.columns = size(1);
